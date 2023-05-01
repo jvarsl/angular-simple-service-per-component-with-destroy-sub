@@ -15,6 +15,10 @@ export class PerComponentService implements OnDestroy {
     console.log(this.guid);
   }
 
+  exposeObservable() {
+    return this.idk.asObservable();
+  }
+
   ngOnDestroy() {
     this.idk.complete();
     console.log('destroyed PerComponentService');

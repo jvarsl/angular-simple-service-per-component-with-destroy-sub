@@ -11,9 +11,15 @@ import { PerComponentService } from '../per-component.service';
 export class ListItemComponent implements OnInit, OnDestroy {
   @Input() product!: Product;
 
-  constructor(private perComponentService: PerComponentService) {}
+  constructor(private perComponentService: PerComponentService) {
+    this.perComponentService.exposeObservable().subscribe(console.log);
+  }
 
   ngOnInit(): void {
+    this.perComponentService.tellGuid();
+  }
+
+  tellGuid() {
     this.perComponentService.tellGuid();
   }
 

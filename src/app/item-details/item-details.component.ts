@@ -10,9 +10,13 @@ export class ItemDetailsComponent implements OnInit {
   @Input() name!: string;
   @Input() publisher!: string;
 
-  constructor(private perComponentService: PerComponentService) {}
+  constructor(private perComponentService: PerComponentService) {
+    this.perComponentService.exposeObservable().subscribe(console.log);
+  }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  tellGuid() {
     this.perComponentService.tellGuid();
   }
 }
